@@ -13,11 +13,12 @@ def most_often_letter(string):
 def one_list(list_in):
     ans_list = []
     for sublist in list_in:
-        if isinstance(sublist, list):
-            one_list(sublist)
+        if isinstance(sublist, (list, tuple)):
+            ans_list.extend(one_list(sublist))
         else:
             ans_list.append(sublist)
-     return ans_list
+
+    return ans_list
 
 print(most_often_letter("blaldaaaaaaaaaaaaflkshjkdfhsla"))
 print(one_list([1, 2, 3, [4, 5], 6, [[[7]]], 8, 9, 10]))
